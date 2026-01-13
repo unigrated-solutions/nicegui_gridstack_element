@@ -1,0 +1,78 @@
+/* gridstack.css */
+.grid-stack {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.03);
+  border-radius: 10px;
+
+}
+
+/* widget look */
+.grid-stack-item-content {
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.widget-header {
+  padding: 8px 10px;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  cursor: move;
+}
+
+.widget-body {
+  padding: 10px;
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+/* cursor activation shift (border alignment) */
+:root {
+  --gs-cursor-shift: 5px; /* 4–10px */
+}
+
+/* resize handles: invisible, still active, no badges/icons */
+.grid-stack .ui-resizable-handle {
+  opacity: 0 !important;
+  background: transparent !important;
+  pointer-events: auto !important;
+  z-index: 50 !important;
+}
+
+.grid-stack .ui-resizable-handle::before,
+.grid-stack .ui-resizable-handle::after,
+.grid-stack .ui-resizable-handle .ui-icon {
+  content: none !important;
+  display: none !important;
+}
+
+/* hit zone sizes */
+.grid-stack .ui-resizable-n,
+.grid-stack .ui-resizable-s { height: 10px !important; }
+
+.grid-stack .ui-resizable-e,
+.grid-stack .ui-resizable-w { width: 10px !important; }
+
+.grid-stack .ui-resizable-ne,
+.grid-stack .ui-resizable-nw,
+.grid-stack .ui-resizable-se,
+.grid-stack .ui-resizable-sw { width: 14px !important; height: 14px !important; }
+
+/* edges: cursor + outward shift */
+.grid-stack .ui-resizable-n { cursor: n-resize !important; top: calc(-1 * var(--gs-cursor-shift)) !important; }
+.grid-stack .ui-resizable-s { cursor: s-resize !important; bottom: calc(-1 * var(--gs-cursor-shift)) !important; }
+.grid-stack .ui-resizable-e { cursor: e-resize !important; right: calc(-1 * var(--gs-cursor-shift)) !important; }
+.grid-stack .ui-resizable-w { cursor: w-resize !important; left: calc(-1 * var(--gs-cursor-shift)) !important; }
+
+/* corners: cursor + outward shift (two axes) */
+.grid-stack .ui-resizable-nw { cursor: nw-resize !important; top: calc(-1 * var(--gs-cursor-shift)) !important; left: calc(-1 * var(--gs-cursor-shift)) !important; }
+.grid-stack .ui-resizable-ne { cursor: ne-resize !important; top: calc(-1 * var(--gs-cursor-shift)) !important; right: calc(-1 * var(--gs-cursor-shift)) !important; }
+.grid-stack .ui-resizable-sw { cursor: sw-resize !important; bottom: calc(-1 * var(--gs-cursor-shift)) !important; left: calc(-1 * var(--gs-cursor-shift)) !important; }
+.grid-stack .ui-resizable-se { cursor: se-resize !important; bottom: calc(-1 * var(--gs-cursor-shift)) !important; right: calc(-1 * var(--gs-cursor-shift)) !important; }
